@@ -1,0 +1,89 @@
+<style>
+
+ .main {
+ background-color: rgba(255, 255, 255, 0.5);
+ margin-top: 100px;
+ padding-bottom: 50px;
+ }
+ .main h1 {
+ font-size: 3.5em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+ .main h2 {
+ font-size: 2em;
+ font-family: Arial;
+ color: #59502e;
+ }
+ .main h3 {
+ font-size: 2em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+ .main p {
+ font-size:1em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+
+</style>
+
+<!--
+palette_name = palette_name, 
+palette_hex = palette_hex, 
+panel_hex = panel_hex, 
+panel_img_path = panel_img
+-->
+
+
+<title>Title</title>
+</head>
+<body>
+<div class="main">
+  <div style="text-align:center">
+  <br><br>
+  <div class="starter-template">
+
+<br><br>
+<h1>They look great together!</h1>
+<h2>{{"They match with the palette called: "}} {{palette_name}}</h2>
+    <table>
+           <tbody>
+           {% for i in range(4) %}
+              <tr>
+                  <input type=”button” style="background-color:{{palette_hex[i]}}">
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+
+    <table>
+           <tbody>
+           {% for i in range(4) %}
+              <tr>
+                  <input type=”button” style="background-color:{{panel_hex[i]}}">
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+
+      
+      <table>
+           <tbody>
+           {% for i in range(4) %}
+              <tr>
+                  <img src="{{ panel_img_path[i] }}" width="200" height="200">
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+<!-- This is the important part!!
+The following code is basically what reads your data and runs your function from app.py
+Don't forget the {% for x in whatever %} if you use a for loop and end the for loop with {% endfor %} -->
+  
+<!-- This gets the info from my florist_info database from app.py and outputs to the user -->
+
+
+
+</div></div></div>
+</body>

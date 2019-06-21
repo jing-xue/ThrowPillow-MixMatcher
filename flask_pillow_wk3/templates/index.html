@@ -1,0 +1,89 @@
+<!-- A really basic homepage. You may want to look at Bootstrap CSS examples to customize your own app! -->
+
+<!-- your CSS goes between <style> </style> -->
+<style>
+
+ .main {
+ background-color: rgba(255, 255, 255, 0.5);
+ margin-top: 100px;
+ padding-bottom: 50px;
+ }
+ .main h1 {
+ font-size: 3.5em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+ .main h2 {
+ font-size: 2em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+ .main h3 {
+ font-size: 2em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+ .main p {
+ font-size:1em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+
+</style>
+<!-- image_list ontains path to images -->
+<!-- color_list contains hex color values for above images-->
+<!-- number is the number of images-->
+<!-- stype = "background-color:#0292b7"-->
+
+<div class="overlay">
+
+</div>
+
+
+<title>BrowseProducts</title>
+</head>
+<body>
+    <div class="main">
+      <div style="text-align:center">
+      <br><br><br>
+
+
+      <div class="starter-template">
+        <h1>Hi there! Pick one from here.</h1>
+
+<form action='/recommendations', method='POST'>
+   <!--<<div class="input">-->
+    <div>
+      <input class="input" type="number" name="indexnum">
+      <button type="submit">Find me matches!</button>
+      <br><br><br>
+    </div>
+      <table>
+        <tbody>
+          {% for i in range(number) %}
+               
+                <tr>
+                    <img src="{{ image_list[i] }}" width="300" height="300">
+                     
+                      
+                      <a href='recommendations'>
+                        <input type=”button” name = "clk" value= "{{i}}" style="background-color:{{color_list[i]}}">
+                      </a>
+                        <!--<button class="btn btn-danger" type="submit" name="delete" value="{{  item2  }}"><span class="glyphicon glyphicon-trash"></span> Delete</button>-->
+                      
+                     
+                </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    <!--<</div>-->
+</form>      
+
+
+
+    </div>
+    </div>
+  </body>
+
+
