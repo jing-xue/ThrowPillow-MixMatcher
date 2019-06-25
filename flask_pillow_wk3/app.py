@@ -2,20 +2,21 @@ from flask import Flask, render_template, request, url_for
 import requests
 import pandas as pd
 import numpy as np
-from ast import literal_eval
-
-from sqlalchemy import create_engine
-from sqlalchemy_utils import database_exists, create_database
-import psycopg2
 import os
+
+#from ast import literal_eval
+#from sqlalchemy import create_engine
+#from sqlalchemy_utils import database_exists, create_database
+#import psycopg2
+
 
 recom_path = os.path.join('static','fina_recommendation.csv')
 palette_path = os.path.join('static','palette_clean_hex.csv')
 pillow = pd.read_csv(recom_path, index_col = 0)
 palette = pd.read_csv(palette_path, index_col = 0)
 
-random10 = list(np.array(range(100))*5)
-
+random10 = list(np.array(range(21))*5)
+del random10[7]
 #n = pillow.shape[0]
 
 #Initialize app
