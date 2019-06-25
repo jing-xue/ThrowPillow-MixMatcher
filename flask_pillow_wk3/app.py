@@ -16,7 +16,6 @@ palette = pd.read_csv(palette_path, index_col = 0)
 
 random10 = list(np.array(range(100))*5)
 
-
 #n = pillow.shape[0]
 
 #Initialize app
@@ -33,7 +32,7 @@ app = Flask(__name__, static_url_path='/static')
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index')
 def show_index():
-	#i = 7
+	
 	full_filename = [os.path.join('static',x) for x in pillow['image'][random10]]
 	
 	return render_template("index.html", image_list = full_filename, color_list = pillow['user_hex'][random10], number = len(random10))
@@ -46,8 +45,8 @@ def recommendations():
     # These are a couple examples of what the user input looks like.
 
     #1. user enters the total price of the wedding. The name of the variable is arbitrary and doesn't have to be the same but is less confusing later on
-    locate = int(request.form['indexnum'])
-    #locate = int(request.args.get('clk'))
+    #locate = int(request.form['indexnum'])
+    locate = int(request.args.get('clk'))
     
     row = random10[locate]
     position_on_palette = pillow['position_on_pltt'][row]
@@ -62,18 +61,11 @@ def recommendations():
     panel_img_path = [os.path.join('static/Pillow_select',x + '.jpg') for x in panel_img]
 
     palette_name = pillow['palette_name'][row]
-    palette_hex = list(palette.loc[palette_name,['hex1','hex2','hex3','hex4']])
+    palette_id = pillow['palette_id'][row]
+    palette_hex = list(palette[['hex1','hex2','hex3','hex4']].iloc[palette_id,:])
     
     return render_template('recommendations.html', palette_name = palette_name, palette_hex = palette_hex, panel_hex = panel_hex, panel_img_path = panel_img_path)
-    
-
-
-
-
-
-
-
-
+  
 
 
 if __name__ == '__main__':
