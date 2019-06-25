@@ -19,14 +19,15 @@
  color: #2E3759;
  }
  .main h3 {
- font-size: 2em;
+ font-size: 1.5em;
  font-family: Arial;
- color: #2E3759;
+ color: #59502e;
  }
  .main p {
  font-size:1em;
  font-family: Arial;
  color: #2E3759;
+ }
  }
 
 </style>
@@ -50,27 +51,31 @@
 
       <div class="starter-template">
         <h1>Hi there! Pick one from here.</h1>
+        <h3>Click the circle next to your selection to see recommendations.</h3>
 
-<form action='/recommendations', method='POST'>
+        <div>
+          <br><br><br>
+        </div>
+
+<!--<form action='/recommendations', method='POST'>-->
    <!--<<div class="input">-->
-    <div>
+    <!--<div>
       <input class="input" type="number" name="indexnum">
       <button type="submit">Find me matches!</button>
       <br><br><br>
-    </div>
+    </div>-->
       <table>
         <tbody>
           {% for i in range(number) %}
                
                 <tr>
                     <img src="{{ image_list[i] }}" width="300" height="300">
-                     
-                      
-                      <a href='recommendations'>
-                        <input type=”button” name = "clk" value= "{{i}}" style="background-color:{{color_list[i]}}">
-                      </a>
-                        <!--<button class="btn btn-danger" type="submit" name="delete" value="{{  item2  }}"><span class="glyphicon glyphicon-trash"></span> Delete</button>-->
-                      
+                
+                        <form action = '/recommendations' method = 'GET' >
+                        <!--<input type=”hidden" name = "clk" value= "{{i}}" >-->
+                          <b><button type='submit' name = "clk" value= "{{i}}" style='background-color:{{color_list[i]}}; height: 60px; width: 60px; border-radius: 50%' >
+                          </button></b>
+                       </form>                      
                      
                 </tr>
 
@@ -78,7 +83,7 @@
         </tbody>
       </table>
     <!--<</div>-->
-</form>      
+<!--</form>-->      
 
 
 

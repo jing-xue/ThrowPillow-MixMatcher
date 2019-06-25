@@ -48,20 +48,20 @@ panel_img_path = panel_img
 <h1>They look great together!</h1>
 <h2>{{"They match with the palette called: "}} {{palette_name}}</h2>
     <table>
-           <tbody>
+           <tbody> <p>Palette:</p>
            {% for i in range(4) %}
               <tr>
-                  <input type=”button” style="background-color:{{palette_hex[i]}}">
+                  <input type=”button” style="background-color:{{palette_hex[i]}}; height: 60px; width: 100px">
               </tr>
           {% endfor %}
           </tbody>
       </table>
 
     <table>
-           <tbody>
+           <tbody> <p>Product:</p>
            {% for i in range(4) %}
               <tr>
-                  <input type=”button” style="background-color:{{panel_hex[i]}}">
+                  <input type=”button” style="background-color:{{panel_hex[i]}}; height: 60px; width: 100px">
               </tr>
           {% endfor %}
           </tbody>
@@ -77,12 +77,13 @@ panel_img_path = panel_img
           {% endfor %}
           </tbody>
       </table>
-<!-- This is the important part!!
-The following code is basically what reads your data and runs your function from app.py
-Don't forget the {% for x in whatever %} if you use a for loop and end the for loop with {% endfor %} -->
-  
-<!-- This gets the info from my florist_info database from app.py and outputs to the user -->
 
+
+
+<form action='/index', method=''>
+
+        <button type="submit">Go back</button>
+      </form>
 
 
 </div></div></div>
